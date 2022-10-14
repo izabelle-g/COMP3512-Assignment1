@@ -3,5 +3,4 @@
 *insert description here*
 
 Authors:
-Izabelle Guevarra
-Kimberly Canon
+Izabelle Guevarra and Kimberly Canon
