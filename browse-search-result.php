@@ -6,8 +6,17 @@
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
         $songsGateway = new SongsDB($conn);
 
-        //FIXME: temporary, for testing
-        $songs = $songsGateway->showAllSongs();
+        //FIXME: temporary, for testing, also see if empty() will work here, check email
+        if(isset($_GET['title']) && $_GET['title'] > 0)
+            $songs = $songsGateway->getAllWithTitle($_GET['title']);
+        else if(isset($_GET['artist_name']) && $_GET['artist_name'] > 0)
+            $songs = $songsGateway->getAllForArtist($_GET['artist_name']);
+        else if(isset($_GET['genre_name']) && $_GET['genre_name'] > 0)
+            $songs = $songsGateway->getAllForGenre($_GET['genre_name']);
+        else
+            $songs = $songsGateway->showAllSongs();
+
+        //TODO: create new db function to show selected
 
     } catch(Exception $e){
         die($e->getMessage());

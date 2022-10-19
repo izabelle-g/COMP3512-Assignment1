@@ -53,15 +53,33 @@
 
     /* Add other table DB classes here with functions like getAll() or something */
     class SongsDB{
-        private static $baseSQL = "SELECT title, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id ORDER BY title";
+        private static $baseSQL = "SELECT title, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id";
 
         public function __construct($connection){
             $this -> pdo = $connection;
         }
 
         public function showAllSongs(){
-            $sql = self::$baseSQL;
+            $sql = self::$baseSQL . " ORDER BY title";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
+
+        public function getAllWithTitle($title){
+            $sql = self::$baseSQL . " WHERE title LIKE ? ORDER BY title";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array('%' . $title . '%'));
+            return $statement->fetchAll();
+        }
+
+        public function getAllForArtist($artist_name){
+            $sql = self::$baseSQL . " WHERE artist_name=? ORDER BY title";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($artist_name));
+            return $statement->fetchAll();
+        }
+
+        public function getAllForGenre($genre_name){
+            $sql = self::$baseSQL . " WHERE genre_name=? ORDER BY title";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($genre_name));
             return $statement->fetchAll();
         }
     }
