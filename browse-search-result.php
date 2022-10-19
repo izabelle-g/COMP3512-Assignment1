@@ -1,6 +1,7 @@
 <?php
     require_once 'includes/config.inc.php';
     require_once 'includes/db-classes.inc.php';
+    require_once 'includes/browse-helper.inc.php';
 
     try{
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
@@ -13,49 +14,24 @@
             $songs = $songsGateway->getAllForArtist($_GET['artist_name']);
         } else if( ! empty($_GET['genre_name']) ){
             $songs = $songsGateway->getAllForGenre($_GET['genre_name']);
-        } else if( ! empty($_GET['year']) &&  ! empty($_GET['choice']) ){
+        } else if( ! empty($_GET['year']) && ! empty($_GET['choice']) ){ //TODO: edit function to pass the choice into after search page is done
             if($_GET['choice'] == "less"){
                 $songs = $songsGateway->getAllBeforeYear($_GET['year']);
             } else if($_GET['choice'] == "greater"){
                 $songs = $songsGateway->getAllAfterYear($_GET['year']);
             }
-        } else if( ! empty($_GET['popularity']) &&  ! empty($_GET['choice']) ){
+        } else if( ! empty($_GET['popularity']) && ! empty($_GET['choice']) ){ //TODO: edit function to pass the choice into after search page is done
             if($_GET['choice'] == "less"){
                 $songs = $songsGateway->getAllPopularityLess($_GET['popularity']);
             } else if($_GET['choice'] == "greater"){
                 $songs = $songsGateway->getAllPopularityGreat($_GET['popularity']);
             }
         }
-        else
+        else{
             $songs = $songsGateway->showAllSongs();
-
-        //TODO: create new db function to show selected
-
+        }
     } catch(Exception $e){
         die($e->getMessage());
-    }
-    
-    //TODO: move function to include file later
-    function outputSearchResults($songs){
-        echo "<table>";
-        //TODO: add two columns for add to favorites and view later
-        echo "<tr>";
-        echo "<th>Title</th>";
-        echo "<th>Artist</th>";
-        echo "<th>Year</th>";
-        echo "<th>Genre</th>";
-        echo "<th>Popularity</th>";
-        echo "</tr>";
-        foreach($songs as $s){
-            echo "<tr>";
-            echo "<td>" . $s['title'] . "</td>";
-            echo "<td>" . $s['artist_name'] . "</td>"; 
-            echo "<td>" . $s['year'] . "</td>";
-            echo "<td>" . $s['genre_name'] . "</td>"; 
-            echo "<td>" . $s['popularity'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
     }
 ?>
 

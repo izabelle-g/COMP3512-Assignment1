@@ -53,7 +53,7 @@
 
     /* Add other table DB classes here with functions like getAll() or something */
     class SongsDB{
-        private static $baseSQL = "SELECT title, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id";
+        private static $baseSQL = "SELECT song_id, title, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id";
 
         public function __construct($connection){
             $this -> pdo = $connection;
