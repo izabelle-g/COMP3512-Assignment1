@@ -7,12 +7,25 @@
         $songsGateway = new SongsDB($conn);
 
         //FIXME: temporary, for testing, also see if empty() will work here, check email
-        if(isset($_GET['title']) && $_GET['title'] > 0)
+        if( ! empty($_GET['title']) ){
             $songs = $songsGateway->getAllWithTitle($_GET['title']);
-        else if(isset($_GET['artist_name']) && $_GET['artist_name'] > 0)
+        } else if( ! empty($_GET['artist_name']) ){
             $songs = $songsGateway->getAllForArtist($_GET['artist_name']);
-        else if(isset($_GET['genre_name']) && $_GET['genre_name'] > 0)
+        } else if( ! empty($_GET['genre_name']) ){
             $songs = $songsGateway->getAllForGenre($_GET['genre_name']);
+        } else if( ! empty($_GET['year']) &&  ! empty($_GET['choice']) ){
+            if($_GET['choice'] == "less"){
+                $songs = $songsGateway->getAllBeforeYear($_GET['year']);
+            } else if($_GET['choice'] == "greater"){
+                $songs = $songsGateway->getAllAfterYear($_GET['year']);
+            }
+        } else if( ! empty($_GET['popularity']) &&  ! empty($_GET['choice']) ){
+            if($_GET['choice'] == "less"){
+                $songs = $songsGateway->getAllPopularityLess($_GET['popularity']);
+            } else if($_GET['choice'] == "greater"){
+                $songs = $songsGateway->getAllPopularityGreat($_GET['popularity']);
+            }
+        }
         else
             $songs = $songsGateway->showAllSongs();
 

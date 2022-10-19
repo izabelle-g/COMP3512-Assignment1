@@ -82,6 +82,31 @@
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($genre_name));
             return $statement->fetchAll();
         }
+
+        //TODO: change this into if statement here, after the search form is made
+        public function getAllBeforeYear($year){
+            $sql = self::$baseSQL . " WHERE year<=? ORDER BY year";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($year));
+            return $statement->fetchAll();
+        }
+
+        public function getAllAfterYear($year){
+            $sql = self::$baseSQL . " WHERE year>=? ORDER BY year";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($year));
+            return $statement->fetchAll();
+        }
+
+        public function getAllPopularityLess($popularity){
+            $sql = self::$baseSQL . " WHERE popularity<=? ORDER BY popularity";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($popularity));
+            return $statement->fetchAll();
+        }
+
+        public function getAllPopularityGreat($popularity){
+            $sql = self::$baseSQL . " WHERE popularity>=? ORDER BY popularity";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($popularity));
+            return $statement->fetchAll();
+        }
     }
 
     class ArtistsDB{
