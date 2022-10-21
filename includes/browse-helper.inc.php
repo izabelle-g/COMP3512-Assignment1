@@ -1,7 +1,7 @@
 <?php
     function outputSearchResults($songs){
         echo "<table>";
-        //TODO: add two columns for add to favorites later
+        //TODO: remove headewr names for add to favorites and view
         echo "<tr>";
         echo "<th>Title</th>";
         echo "<th>Artist</th>";
