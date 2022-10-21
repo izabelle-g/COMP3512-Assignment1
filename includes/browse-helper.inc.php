@@ -1,30 +1,27 @@
 <?php
     function outputSearchResults($songs){
         echo "<table>";
-        //TODO: remove headewr names for add to favorites and view
         echo "<tr>";
         echo "<th>Title</th>";
         echo "<th>Artist</th>";
         echo "<th>Year</th>";
         echo "<th>Genre</th>";
         echo "<th>Popularity</th>";
-        echo "<th>Add to Favorites</th>";
-        echo "<th>View</th>";
+        echo "<th></th>";
+        echo "<th></th>";
         echo "</tr>";
 
         foreach($songs as $s){ ?>
             <tr>
-                <!--TODO: replace testfile.php with: "single-song-page.php?id=<?//$s['song_id']?>"-->
-                <td><a href='testfile.php'><?=$s['title']?></a></td>
+                <td><a href='single-song.php?id=<?=$s['song_id']?>'><?=$s['title']?></a></td>
                 <td><?=$s['artist_name']?></td>
                 <td><?=$s['year']?></td>
                 <td><?=$s['genre_name']?></td>
                 <td><?=$s['popularity']?></td>
-                <!--TODO: replace testfile.php with: "favorites.php" <- figure out how to do sessions-->
-                <td><a href='testfile.php' class='button'>+</a></td>
-                <!--TODO: replace testfile.php with: "single-song-page.php?id=<?//$s['song_id']?>"-->
+                <!--TODO: replace the song id back to + or an image-->
+                <td><a href='add-to-favorites.php?id=<?=$s['song_id']?>' class='button'><?=$s['song_id']?></a></td>
                 <!--TODO: style "button"-->
-                <td><a href='testfile.php' class='button'>View "button"</a></td>
+                <td><a href='single-song.php?id=<?=$s['song_id']?>' class='button'>View "button"</a></td>
             </tr>
         <?php }
         echo "</table>";

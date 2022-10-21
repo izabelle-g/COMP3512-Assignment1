@@ -3,7 +3,16 @@
     require_once 'includes/db-classes.inc.php';
     require_once 'includes/favorites-helper.inc.php';
 
-    //TODO: add in things here to get favorites.
+    session_start();
+
+    if( ! isset($_SESSION["favorites"]) ){
+        $_SESSION["favorites"] = [];
+    }
+
+    $favorites = $_SESSION["favorites"];
+
+    $conn = DatabaseHelper::createConnection( array(DBCONNSTRING, DBUSER, DBPASS) );
+    $songsGateway = new SongsDB($conn);
 ?>
 
 <!DOCTYPE html>
@@ -22,13 +31,22 @@
 
     <main>
         <h2>Favorites</h2>
-        <!--Replace with the remove thingy-->
-        <a href='testfile.php' class= 'button'>Remove All</a>
+        <a href='remove-favorites.php' class= 'button'>Remove All</a>
 
         <article>
             <section>
                 <?php
-                    //TODO: outputFavorites($favorites);
+                    echo "<table>";
+
+                    // output the header of the table
+                    outputHeader();
+                    
+                    // output each favorite song
+                    foreach($favorites as $fav_id){
+                        outputFavorites($songsGateway->getSong($fav_id));
+                    }
+
+                    echo "</table>";
                 ?>
             </section>
         </article> 
