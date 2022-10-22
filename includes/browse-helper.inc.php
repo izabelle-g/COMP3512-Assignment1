@@ -7,7 +7,7 @@
     //         echo utf8_encode()
     //     }
     // }
-    function outputSearchResults($songs){
+    function outputSearchResults($songs, $name, $search){
         echo "<table>";
         echo "<tr>";
         echo "<th>Title</th>";
@@ -25,9 +25,7 @@
                 <td><?=$s['year']?></td>
                 <td><?=$s['genre_name']?></td>
                 <td><?=$s['popularity']?></td>
-                <!--TODO: replace the song id back to + or an image-->
-                <td><a href='add-to-favorites.php?id=<?=$s['song_id']?>' class='button'><?=$s['song_id']?></a></td>
-                <!--TODO: style "button"-->
+                <td><a href='add-to-favorites.php?id=<?=$s['song_id']?>&name=<?=$name?>&<?=$name?>=<?=$search?>' class='button'><?=$s['song_id']?></a></td>
                 <td><a href='single-song.php?id=<?=$s['song_id']?>' class='button'>View "button"</a></td>
             </tr>
         <?php }

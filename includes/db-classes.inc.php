@@ -51,7 +51,6 @@
         }
     }
 
-    /* Add other table DB classes here with functions like getAll() or something */
     class SongsDB{
         private static $baseSQL = "SELECT song_id, title, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id";
 
@@ -83,7 +82,6 @@
             return $statement->fetchAll();
         }
 
-        //TODO: change this into if statement here, after the search form is made
         public function getAllBeforeYear($year){
             $sql = self::$baseSQL . " WHERE year<=? ORDER BY year";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($year));

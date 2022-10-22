@@ -13,6 +13,12 @@
 
     $conn = DatabaseHelper::createConnection( array(DBCONNSTRING, DBUSER, DBPASS) );
     $songsGateway = new SongsDB($conn);
+
+    // creates a query string containing the filtered search results
+    if( !empty($_GET["name"]) && !empty($_GET[$_GET["name"]]) )
+        $str = "name=" . $_GET['name'] . "&" . $_GET['name'] . "=" . $_GET[$_GET['name']];
+    else
+        $str = "";
 ?>
 
 <!DOCTYPE html>
@@ -31,19 +37,25 @@
 
     <main>
         <h2>Favorites</h2>
-        <a href='remove-favorites.php' class= 'button'>Remove All</a>
+        <a href='remove-favorites.php?<?=$str?>' class= 'button'>Remove All</a>
+
+        <!--Returns user to filtered search results-->
+        <a href='browse-search-result.php?<?=$str?>' class= 'button'>Return to Browse/Result Page</a>
 
         <article>
             <section>
                 <?php
-                    echo "<table>";
+                    // echoes a message saying that the song is already in favorites
+                    if( !empty($_GET["text"]) ){
+                        echo $_GET["text"]; 
+                    }
 
-                    // output the header of the table
+                    echo "<table>";
                     outputHeader();
-                    
+
                     // output each favorite song
                     foreach($favorites as $fav_id){
-                        outputFavorites($songsGateway->getSong($fav_id));
+                        outputFavorites($songsGateway->getSong($fav_id), $str);
                     }
 
                     echo "</table>";

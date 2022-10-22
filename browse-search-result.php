@@ -7,38 +7,40 @@
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
         $songsGateway = new SongsDB($conn);
 
-        //TODO: make it work when all pages are done
-        if( ! empty($_GET['title']) ){
-            $songs = $songsGateway->getAllWithTitle($_GET['title']);
-            $message = "Showing all songs with " . $_GET['title'] . " in Title";
-        } else if( ! empty($_GET['artist_name']) ){
-            $songs = $songsGateway->getAllForArtist($_GET['artist_name']);
-            $message = "Showing all songs by " . $_GET['artist_name'];
-        } else if( ! empty($_GET['genre_name']) ){
-            $songs = $songsGateway->getAllForGenre($_GET['genre_name']);
-            $message = "Showing all " . $_GET['genre_name'] . " songs in Genre";
-        } else if( ! empty($_GET['year']) && ! empty($_GET['choice']) ){
-            if($_GET['choice'] == "less"){
-                $songs = $songsGateway->getAllBeforeYear($_GET['year']);
-                $message = "Showing all songs on and before " . $_GET['year'];
-            } else if($_GET['choice'] == "greater"){
-                $songs = $songsGateway->getAllAfterYear($_GET['year']);
-                $message = "Showing all songs on and after " . $_GET['year'];
+        // TODO: works, just needs the search page
+        if( !empty($_GET['name']) ){
+            switch($_GET['name']){
+                case 'title':
+                    $songs = $songsGateway->getAllWithTitle($_GET['title']);
+                    $message = "Showing all songs with " . $_GET['title'] . " in Title";
+                    break;
+                case 'artist_name':
+                    $songs = $songsGateway->getAllForArtist($_GET['artist_name']);
+                    $message = "Showing all songs by " . $_GET['artist_name'];
+                    break;
+                case 'genre_name':
+                    $songs = $songsGateway->getAllForGenre($_GET['genre_name']);
+                    $message = "Showing all " . $_GET['genre_name'] . " songs in Genre";
+                    break;
+                case 'year': // TODO: change after getting search
+                    $message = "Under Construction";
+                    break;
+                case 'popularity': // TODO: change after getting search
+                    $message = "Under Construction";
+                    break;
+                default:
+                    $songs = $songsGateway->showAllSongs();
+                    $message = "Showing all songs";
+                    break;
             }
-        } else if( ! empty($_GET['popularity']) && ! empty($_GET['choice']) ){
-            if($_GET['choice'] == "less"){
-                $songs = $songsGateway->getAllPopularityLess($_GET['popularity']);
-                $message = "Showing all songs with popularity of " . $_GET['popularity'] . " or less";
-
-            } else if($_GET['choice'] == "greater"){
-                $songs = $songsGateway->getAllPopularityGreat($_GET['popularity']);
-                $message = "Showing all songs with popularity of " . $_GET['popularity'] . " or greater";
-            }
-        }
-        else{
+        } else{
             $songs = $songsGateway->showAllSongs();
             $message = "Showing all songs";
         }
+
+        // get query strings
+        $name = $_GET['name'];
+        $search = $_GET[$name];
     } catch(Exception $e){
         die($e->getMessage());
     }
@@ -67,7 +69,7 @@
         <article>
             <section>
                 <?php
-                    outputSearchResults($songs);
+                    outputSearchResults($songs, $name, $search);
                 ?>
             </section>
         </article> 
