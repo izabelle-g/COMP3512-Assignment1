@@ -1,0 +1,54 @@
+body{
+    background-color: #ffd3d6;
+text-align: center;
+}
+
+div{
+    display: inline-block;
+}
+
+.top-genre, .top-artist, .popular, .acoutstic, .one-hit, .acoustic, .club, .running, .studying{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin:10px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.top-genre, .studying{
+    background-color: #b3c28c;
+}
+.top-artist, .running{
+    background-color: #b2beec;
+}
+.popular, .acoustic{
+    background-color: #fbebb3;
+}
+
+.one-hit, .club{
+    background-color: #fff1f2;
+}
+
+ul > li {
+    list-style: none;
+}
+
+.header{
+    display: inline-block;
+    width: 900px;
+    background-color: #eba2ac;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20%;
+    
+
+}
+
+.desc{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    display: block;
+    text-align: center;
+}
