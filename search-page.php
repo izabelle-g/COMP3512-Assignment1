@@ -58,13 +58,11 @@ catch (Exception $e){ die($e->getMessage());}
     <div class="year">
         <label>Year</label>
         <div class="year scale">
-            <input type="radio" id="year-from" name="year" value="year-from">
-            <label for="year-from">From
-                <input type="text" for="year-from" name="year-from-value" title="text-year-from">
+            <label for="year-before">Before
+                <input type="text" for="year-before" name="year-before-value" title="text-year-before">
             </label>
-            <input type="radio" id="year-to" name="year" value="year-to">
-            <label for="year-to">To
-                <input type="text" for="year-to" name="year-to-value" title="text-year-to">
+            <label for="year-after">After
+                <input type="text" for="year-after" name="year-after-value" title="text-year-after">
             </label><br>
         </div>
     </div>
@@ -74,13 +72,11 @@ catch (Exception $e){ die($e->getMessage());}
     <div class="popularity">
         <label>Popularity</label>
         <div class="popularity scale">
-            <input type="radio" id="pop-from" name="popularity" value="popularity-from">
-            <label for="pop-from">From
-                <input type="text" for="pop-from" name="pop-from-value" title="text-popularity-from">
+            <label for="pop-less">Less
+                <input type="text" for="pop-less" name="pop-before-less" title="text-popularity-less">
             </label>
-            <input type="radio" id="pop-to" name="popularity" value="popularity-to">
-            <label for="pop-to">To
-                <input type="text" for="pop-to" name="pop-to-value" title="text-popularity-to">
+            <label for="pop-greater">Greater
+                <input type="text" for="pop-greater" name="pop-greater-value" title="text-popularity-greater">
             </label></br>
         </div>
     </div>

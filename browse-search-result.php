@@ -6,40 +6,52 @@
     try{
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
         $songsGateway = new SongsDB($conn);
+        $artistGateway = new ArtistsDB($conn);
+        $genreGateway = new GenresDB($conn);
 
-        // TODO: works, just needs the search page
-        if( !empty($_GET['name']) ){
-            switch($_GET['name']){
-                case 'title':
-                    $songs = $songsGateway->getAllWithTitle($_GET['title']);
-                    $message = "Showing all songs with " . $_GET['title'] . " in Title";
-                    break;
-                case 'artist_name':
-                    $songs = $songsGateway->getAllForArtist($_GET['artist_name']);
-                    $message = "Showing all songs by " . $_GET['artist_name'];
-                    break;
-                case 'genre_name':
-                    $songs = $songsGateway->getAllForGenre($_GET['genre_name']);
-                    $message = "Showing all " . $_GET['genre_name'] . " songs in Genre";
-                    break;
-                case 'year': // TODO: change after getting search
-                    $message = "Under Construction";
-                    break;
-                case 'popularity': // TODO: change after getting search
-                    $message = "Under Construction";
-                    break;
-                default:
-                    $songs = $songsGateway->showAllSongs();
-                    $message = "Showing all songs";
-                    break;
-            }
-        } else{
+        if( !empty($_GET['title']) ){
+            $songs = $songsGateway->getAllWithTitle($_GET['title']);
+            $message = "Showing all songs with '" . $_GET['title'] . "' in Title";
+            $name = "title";
+        }
+        else if( !empty($_GET['artistList'] && $_GET['artistList'] > 0) ){
+            $artist_data = $artistGateway->getArtist($_GET['artistList']);
+            $songs = $songsGateway->getAllForArtist($artist_data[0]['artist_name']);
+            $message = "Showing all songs by " . $artist_data[0]['artist_name'];
+            $name = "artistList";
+        }
+        else if( !empty($_GET['genreList'] && $_GET['genreList'] > 0) ){
+            $genre_data = $genreGateway->getGenre($_GET['genreList']);
+            $songs = $songsGateway->getAllForGenre($genre_data[0]['genre_name']);
+            $message = "Showing all " . $genre_data[0]['genre_name'] . " songs in Genre";
+            $name = "genreList";
+        }
+        else if( !empty($_GET['year-before-value']) ){
+            $songs = $songsGateway->getAllBeforeYear($_GET['year-before-value']);
+            $message = "Showing all songs before the year " . $_GET['year-before-value'];
+            $name = "year-before-value";
+        }
+        else if( !empty($_GET['year-after-value']) ){
+            $songs = $songsGateway->getAllAfterYear($_GET['year-after-value']);
+            $message = "Showing all songs after the year " . $_GET['year-after-value'];
+            $name = "year-after-value";
+        }
+        else if( !empty($_GET['pop-less-value']) ){
+            $songs = $songsGateway->getAllPopularityLess($_GET['pop-less-value']);
+            $message = "Showing all songs with popularity less than " . $_GET['pop-less-value'];
+            $name = "pop-less-value";
+        }
+        else if( !empty($_GET['pop-greater-value']) ){
+            $songs = $songsGateway->getAllPopularityGreat($_GET['pop-greater-value']);
+            $message = "Showing all songs with popularity greater than " . $_GET['pop-greater-value'];
+            $name = "pop-greater-value";
+        }
+        else{
             $songs = $songsGateway->showAllSongs();
             $message = "Showing all songs";
         }
 
         // get query strings
-        $name = $_GET['name'];
         $search = $_GET[$name];
     } catch(Exception $e){
         die($e->getMessage());
