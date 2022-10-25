@@ -52,7 +52,7 @@
     }
 
     class SongsDB{
-        private static $baseSQL = "SELECT song_id, title, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id";
+        private static $baseSQL = "SELECT song_id, bpm, energy, danceability, liveness, valence, acousticness, speechiness, popularity, title,duration, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id";
 
         public function __construct($connection){
             $this -> pdo = $connection;
@@ -109,7 +109,7 @@
         public function getSong($song_id){
             $sql = self::$baseSQL . " WHERE song_id=?";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($song_id));
-            return $statement->fetchAll();
+            return $statement->fetch();
         }
 
         public function getTop10Popularity(){
