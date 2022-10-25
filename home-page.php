@@ -1,6 +1,6 @@
 <?php
     include_once 'includes/db-classes.inc.php';
-    require_once('includes/config.inc.php');
+    require_once 'includes/config.inc.php';
 
     try{
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
