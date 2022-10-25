@@ -111,6 +111,33 @@
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($song_id));
             return $statement->fetchAll();
         }
+
+        public function getTop10Popularity(){
+            $sql = self::$baseSQL . ' ORDER BY popularity DESC LIMIT 10';
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
+
+        public function get10OneHits(){
+
+            $sql = "SELECT song_id, title, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id GROUP BY artist_name HAVING COUNT(artist_name) < 2 ORDER BY artist_name ASC LIMIT 10";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
+
+        public function longestAcoustic(){
+            $sql = "SELECT title, duration,acousticness, artist_name FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id WHERE acousticness > 40 ORDER BY duration DESC LIMIT 10";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
+
+        public function AtTheClub(){
+            $sql = "SELECT title, danceability, danceability, artist_name FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id WHERE danceability > 80 ORDER BY danceability DESC LIMIT 10";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
+
+
     }
 
     class ArtistsDB{
@@ -125,6 +152,14 @@
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
             return $statement->fetchAll();
         }
+        public function getTop10Artists(){
+           // $sql = "SELECT COUNT(artist_id), artist_name FROM songs,artists WHERE artist.artist_id=songs.artist_id ";
+           $sql = "SELECT artist_name, COUNT(artists.artist_id) FROM songs INNER JOIN artists ON songs.artist_id=artists.artist_id ORDER BY artist_name LIMIT 10";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
+
+
     }
 
     class GenresDB{
@@ -139,6 +174,14 @@
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
             return $statement->fetchAll();
         }
+
+        public function topGenres(){
+            $sql = "SELECT COUNT(songs.genre_id), genres.genre_name FROM SONGS INNER JOIN genres ON songs.genre_id = genres.genre_id GROUP BY songs.genre_id ORDER BY COUNT(songs.genre_id) DESC LIMIT 10";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
+
+
     }
 
     class TypesDB{

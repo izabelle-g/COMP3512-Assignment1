@@ -1,20 +1,23 @@
 body{
     background-color: #ffd3d6;
-text-align: center;
+
 }
 
 div{
     display: inline-block;
 }
 
-.top-genre, .top-artist, .popular, .acoutstic, .one-hit, .acoustic, .club, .running, .studying{
+h3{
+    text-align: center;
+}
+
+.top-genre, .top-artist, .popular, .acoutstic, .one-hit, .acoustic, .club, .running, .studying {
     display: inline-block;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 350px;
     margin:10px;
     padding: 30px;
     border-radius: 20px;
-    text-align: center;
 }
 
 .top-genre, .studying{

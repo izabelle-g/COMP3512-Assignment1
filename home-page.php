@@ -1,3 +1,19 @@
+<?php
+    include_once 'includes/db-classes.inc.php';
+    require_once('includes/config.inc.php');
+
+    try{
+        $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
+        $songGateway = new SongsDB($conn);
+        $artistGateway = new ArtistsDB($conn);
+        $genreGateway = new GenresDB($conn);
+        $song = $songGateway->showAllSongs();
+        $artist = $artistGateway->getAll();
+        $genre = $genreGateway->getAll();
+    }
+    catch (Exception $e){ die($e->getMessage());}   
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,34 +38,76 @@
         </div>
 
         <div class="column top-genre "> 
+            <h3>Top Genres</h3>
             <ul>
-                <li>Top Genres</li>
-            </ul>
+                <?php
+                $genre = $genreGateway -> topGenres();
+                foreach($genre as $key){ ?>
+                <li><span><?= $key['genre_name'];?> - <?= $key['COUNT(songs.genre_id)'];?> </span> </li>
+                <?php
+                }
+                ?>
+           </ul>
         </div>
         <div class="column top-artist"> 
+             <h3>Top Artists</h3>
             <ul>
-                <li>Top Artists</li>
+                <?php
+                $artist = $artistGateway -> getTop10Artists();
+                foreach($artist as $key){ ?>
+                <li><span><?= $key['artist_name']?> </li>
+                <?php
+                }
+                ?>
             </ul>
         </div>
         <div class="column popular"> 
+            <h3>Most Popular Songs</h3>
             <ul>
-                <li>Most Popular Songs</li>
+                <?php
+                $song = $songGateway -> getTop10Popularity();
+                foreach($song as $key){ ?>
+                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?>  - <?= $key['popularity']?> </li>
+                <?php
+                }
+                ?>
             </ul>
         </div>
         <div class="column one-hit"> 
-           <ul>
-            <li>One Hit Wonders</li>
+            <h3>One Hit Wonders</h3>
+            <ul>
+                <?php
+                $song = $songGateway -> get10OneHits();
+                foreach($song as $key){ ?>
+                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> </li>
+                <?php
+                }
+                ?>
            </ul>
         </div>
         <div class="column acoustic"> 
+        <h3>Longest Acoustic Songs</h3>
             <ul>
-                <li>Longest Acoustic Songs</li>
-            </ul>
+                <?php
+                $song = $songGateway -> longestAcoustic();
+                foreach($song as $key){ ?>
+                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> Duration: <?= $key['duration']?></li>
+                <?php
+                }
+                ?>
+           </ul>
         </div>
         <div class="column club"> 
+        <h3>At The Club</h3>
             <ul>
-                <li>At the Club</li>
-            </ul>
+                <?php
+                $song = $songGateway -> AtTheClub();
+                foreach($song as $key){ ?>
+                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> Calc: <?= $key['danceability']?></li>
+                <?php
+                }
+                ?>
+           </ul>
         </div>
         <div class="column running"> 
             <ul>
