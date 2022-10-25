@@ -1,6 +1,6 @@
 <?php 
 include_once 'includes/db-classes.inc.php';
-require_once('includes/config.inc.php');
+require_once 'includes/config.inc.php';
 include_once 'includes/browse-helper.inc.php';
 
 try{
@@ -33,36 +33,39 @@ catch (Exception $e){ die($e->getMessage());}
 
     <div class="title">
         <label>Title</label> 
-        <input type="text" title="title search"> <br>
+        <input type="text" name="title" title="title-search"> <br>
     </div>
 
-    <label>Artist</label>
-    <select name="artistList" title="artist">
-        <option value='0'>Choose An Artist</option>
-        <?=outputArtistList($artist);?>
-        <!--
-            stuff here
-        -->
-    </select>
+    <div class="artist">
+        <label>Artist</label>
+        <select name="artistList" title="artist">
+            <option value='0'>Choose An Artist</option>
+                <?=outputArtistList($artist);?>
+                <!--
+                    stuff here
+                -->
+        </select>
+    </div>
 
     <div class="genre">
-        <input type="radio" name="genre" title="genre">
         <label>Genre</label>
-        <select name="artistList" title="artist">
-
+        <select name="genreList" title="genre">
             <option value='0'>Choose A Genre</option>
             <?=outputGenre($song)?>
-
         </select> <br>
     </div>
     
     <div class="year">
         <label>Year</label>
         <div class="year scale">
-            <input type="radio" title="year-from" name="year-from"> From 
-            <input type="text" name="text-from" title="text-year-from">
-            <input type="radio" title="year-to" name="year-to"> To
-            <input type="text" name="text-to" title="text-year-to">
+            <input type="radio" id="year-from" name="year" value="year-from">
+            <label for="year-from">From
+                <input type="text" for="year-from" name="year-from-value" title="text-year-from">
+            </label>
+            <input type="radio" id="year-to" name="year" value="year-to">
+            <label for="year-to">To
+                <input type="text" for="year-to" name="year-to-value" title="text-year-to">
+            </label><br>
         </div>
     </div>
 
@@ -71,22 +74,22 @@ catch (Exception $e){ die($e->getMessage());}
     <div class="popularity">
         <label>Popularity</label>
         <div class="popularity scale">
-            <input type="radio" title="year-from" name="popularity-from"> From 
-            <input type="text" name="text-from" title="text-popularity-from">
-            <input type="radio" title="year-to" name="popularity-to"> To
-            <input type="text" name="text-to" title="text-popularity-to">
+            <input type="radio" id="pop-from" name="popularity" value="popularity-from">
+            <label for="pop-from">From
+                <input type="text" for="pop-from" name="pop-from-value" title="text-popularity-from">
+            </label>
+            <input type="radio" id="pop-to" name="popularity" value="popularity-to">
+            <label for="pop-to">To
+                <input type="text" for="pop-to" name="pop-to-value" title="text-popularity-to">
+            </label></br>
         </div>
     </div>
 
-    <input type="submit" >
-
-
-   
-
-
-
-
-
+    <input type="submit">
    </form>
 </body>
+
+<footer>
+        <h2>Footer</h2>
+    </footer>
 </html>
