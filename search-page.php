@@ -22,13 +22,15 @@ catch (Exception $e){ die($e->getMessage());}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="css-files/search-page.css" rel="stylesheet">
+    <link type="text/css" href="css-files/main.css" rel="stylesheet">
     <title>Search Song</title>
 </head>
 <body>
     <header>
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
-
+            <hr>
         <nav>
             <ul>
                 <li><a href="home-page.php">HOME</a></li>
@@ -38,6 +40,7 @@ catch (Exception $e){ die($e->getMessage());}
             </ul>
         </nav>
     </header>
+    <hr>
 
     <main>
         <h2>Basic Song Search</h2>
@@ -91,8 +94,7 @@ catch (Exception $e){ die($e->getMessage());}
                     </label></br>
                 </div>
             </div>
-
-            <input type="submit">
+            <input class="btn" type="submit">
         </form>
     </main>
 

@@ -52,10 +52,20 @@ nav{
 
 nav ul li a{
     padding:30px;
+
+
 }
+nav ul li{
+    padding-left: 30px;
+    padding-right:30px;
+    align-items: center;
+}
+
 ul > li {
     display: inline-block;
     list-style: none;
+ 
+
 }
 
 li span{
@@ -82,3 +92,6 @@ header .header{
     text-align: center;
     margin-bottom: 30px;
 }
+
+
+img{height: 30px; width: 30px; margin-right: -20px;}
