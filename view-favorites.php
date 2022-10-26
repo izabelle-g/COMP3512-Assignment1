@@ -40,6 +40,7 @@
     <header>
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
+        <hr>
 
         <nav>
             <ul>
@@ -49,6 +50,7 @@
                 <li><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
+        <hr>
     </header>
 
     <main>

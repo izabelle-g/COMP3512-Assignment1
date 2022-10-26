@@ -6,10 +6,10 @@ body{
     
 }
 
-a:link    { color: var(--darkbrown); text-decoration: none; }
-a:visited { color: var(--darkbrown); text-decoration: none; }
-a:hover   { color: var(--highlight-color); text-decoration: none; }
-a:active  { color: var(--highlight-color); text-decoration: none; }
+a:link    { color: var(--darkbrown);}
+a:visited { color: var(--darkbrown);}
+a:hover   { color: var(--highlight-color);}
+a:active  { color: var(--highlight-color);}
 
 th{
     padding: 20px;
@@ -36,7 +36,7 @@ footer a{
 
 table{
     padding-bottom: 100px;
-    padding: 50px;
+    padding: 100px;
     background-color: var(--teal);
     margin: -5px;
     border-radius: 5px;
@@ -48,13 +48,17 @@ table{
 
 }
 
+
 .centre{
     margin-left:auto;
     margin-right: auto;
 }
 
-ul li{
+ul li {
+    display: inline-block;
+    padding: 30px;
     list-style: none;
+    
 }
 
 .favs{

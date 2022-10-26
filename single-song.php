@@ -19,12 +19,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="css-files/single-song.css" rel="stylesheet">
+    <link type="text/css" href="css-files/main.css" rel="stylesheet">
     <title><?=$song[0]['title']?> by <?=$song[0]['artist_name']?></title>
 </head>
 <body>
     <header>
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
+            <hr>
+            <br>
+            
         
 
         <nav>
@@ -36,31 +41,35 @@
             </ul>
         </nav>
     </header>
+    <hr>
 
     <main class="body">
         <h1>Song Information</h1>
-        <?php
-            foreach($song as $s){
-                echo $s['title']." by ". $s['artist_name']."<br>";
-                echo "Genre: ". $s['genre_name']."<br>";
-                echo "Year: ". $s['year']."<br>";
-                echo "Duration: ". $s['duration']."<br>";
-            } 
+        <div class="list">
+            <?php
+                foreach($song as $s){
+                    echo "<div class='title'><b>".$s['title']."</b> by ". $s['artist_name']."<br></div>";
+                    echo "<br>";
+                    echo "Genre: ". $s['genre_name']."<br>";
+                    echo "Year: ". $s['year']."<br>";
+                    echo "Duration: ". $s['duration']."<br>";
+                } 
+                echo "</div>";
 
-            echo "<p>Analysis Data</p>";
-
-            echo "<ul>";
-            foreach($song as $s){ ?>
-                <li><?= 'BPM: ' . $s['bpm'];?></li>
-                <li><?= 'Energy: ' . $s['energy'];?></li>
-                <li><?= 'Liveness: ' . $s['liveness'];?></li>
-                <li><?= 'Danceability: ' . $s['danceability'];?></li>
-                <li><?= 'Valence: ' . $s['valence'];?></li>
-                <li><?= 'Acousticness: ' . $s['acousticness'];?></li>
-                <li><?= 'Popularity: ' . $s['popularity'];?></li>
-            <?php }
-            echo "</ul>";
-        ?> 
+                echo "<p><b>Analysis Data</b></p>";
+                echo "<div class='data'><ul>";
+                foreach($song as $s){ ?>
+                    <li><?= 'BPM: ' . $s['bpm'];?></li>
+                    <li><?= 'Energy: ' . $s['energy'];?></li>
+                    <li><?= 'Liveness: ' . $s['liveness'];?></li>
+                    <li><?= 'Danceability: ' . $s['danceability'];?></li>
+                    <li><?= 'Valence: ' . $s['valence'];?></li>
+                    <li><?= 'Acousticness: ' . $s['acousticness'];?></li>
+                    <li><?= 'Popularity: ' . $s['popularity'];?></li>
+                <?php }
+                echo "</div></ul>";
+            ?>
+        
     </main>
 
     <footer>

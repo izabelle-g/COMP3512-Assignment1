@@ -1,7 +1,16 @@
 body{
-    background-color: aliceblue;
-
+    background-color: var(--background);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--darkbrown);
 }
+.body{
+    display: block;
+}
+
+a:link    { color: var(--darkbrown);}
+a:visited { color: var(--darkbrown);}
+a:hover   { color: var(--highlight-color);}
+a:active  { color: var(--highlight-color);}
 
 div{
     display: inline-block;
@@ -13,46 +22,63 @@ h3{
 
 .top-genre, .top-artist, .popular, .acoutstic, .one-hit, .acoustic, .club, .running, .studying {
     display: inline-block;
-    width: 450px;
-    height: 400px;
+    width: 700px;
+    height: 300px;
     margin:10px;
     padding: 30px;
     border-radius: 20px;
 }
 
-.top-genre, .studying{
-    background-color: #b3c28c;
+.top-genre, .studying, .popular, .club{
+    background-color: var(--pink);
 }
-.top-artist, .running{
-    background-color: #b2beec;
-}
-.popular, .acoustic{
-    background-color: #fbebb3;
+.top-artist, .running, .one-hit,.acoustic{
+    background-color: var(--teal);
 }
 
-.one-hit, .club{
-    background-color: #fff1f2;
+header, main ,footer { 
+    padding-top: 30px;
+    text-align: center;
+    align-content: center;    
 }
 
+.column ul{
+    padding-top: 2px;
+    text-align: start;
+}
+nav{
+    padding: 30px;
+}
+
+nav ul li a{
+    padding:30px;
+}
 ul > li {
+    display: inline-block;
     list-style: none;
 }
 
+li span{
+    font-weight: bold;
+}
 
+footer a, .desc a{
+    background-color: #e0ded1;
+    padding: 10px;
+    border-radius: 10px;
+
+}
 header .header{
     width: 1000px;
     background-color: #eba2ac;
     padding: 10px;
     text-align: center;
-    border-radius: 20%;
+    border-radius: 10%;
     align-content: center;
-    
-
 }
 
 .desc{
-    padding-top: 30px;
-    padding-bottom: 20px;
     display: block;
     text-align: center;
+    margin-bottom: 30px;
 }

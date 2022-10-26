@@ -19,13 +19,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" href="css-files/home-page.css" rel="stylesheet">
-    <link type="text/css" href="css-files/main.css" rel="stylesheet" />
+    <link type="text/css" href="css-files/main.css" rel="stylesheet">
+
     <title>Home | Song Bank</title>
 </head>
 <body>
     <header class="header">
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
+
+        <hr>
 
         <nav>
             <ul>
@@ -35,13 +38,19 @@
                 <li><a href="browse-search-result.php">BROWSE/SEARCH</a><img src="" alt= "browse/search icon"/></li>
             </ul>
         </nav>
+        <hr>
     </header>
+    
+
 
     <main class="body">
         <div class="desc">
             <h2>Top Music Categories</h2>
-            <p>COMP 3512 - PHP Assignment</p><p>Izabelle Guevarra, Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
+            <p>COMP 3512 - PHP Assignment</p><p>Izabelle Guevarra, Kimberly Canon</p>
+            <a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
         </div>
+        
+        
 
         <div class="column top-genre "> 
             <h3>Top Genres</h3>
@@ -75,9 +84,10 @@
         <h3>Longest Acoustic Songs</h3>
             <ul>
                 <?php
-                $song = $songGateway -> longestAcoustic();
+                $song = $songGateway -> getTop10LongestAcoustic();
                 foreach($song as $key){ ?>
-                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> Duration: <?= $key['duration']?></li>
+                <li><span><a href="single-song.php?id=<?=$key['song_id']?>"><?=$key['title']?></a></span> by <?= $key['artist_name']?> (<?= $key['duration']?>)</li><br>
+
                 <?php
                 }
                 ?>

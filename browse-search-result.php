@@ -64,6 +64,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="css-files/browse-search.css" rel="stylesheet">
+    <link type="text/css" href="css-files/main.css" rel="stylesheet">
     <title>Browse/Search</title>
     <!--<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -74,6 +76,7 @@
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
 
+        <hr>
         <nav>
             <ul>
                 <li><a href="home-page.php">HOME</a></li>
@@ -82,6 +85,7 @@
                 <li><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
+        <hr>
     </header>
 
     <main>
