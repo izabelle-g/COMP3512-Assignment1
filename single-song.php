@@ -29,15 +29,13 @@
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
             <hr>
             <br>
-            
         
-
-        <nav>
+            <nav>
             <ul>
-                <li><a href="home-page.php">HOME</a><img src="" alt= "home icon"/></li>
-                <li><a href="view-favorites.php">VIEW FAVORITES</a><img src="" alt= "favorites icon"/></li>
-                <li><a href="search-page.php">SEARCH</a><img src="" alt= "search icon"/></li>
-                <li><a href="browse-search-result.php">BROWSE/SEARCH</a><img src="" alt= "browse/search icon"/></li>
+                <li><img src="icons/home.PNG" alt= "home icon"/><a href="home-page.php">HOME</a></li>
+                <li><img src="icons/fav.PNG" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
+                <li><img src="icons/search.PNG" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
+                <li><img src="icons/browse.PNG" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
     </header>

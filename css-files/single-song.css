@@ -21,6 +21,7 @@ header, main ,footer, table {
 .body h1{background-color: var(--pink);}
 
 li{list-style: none;}
+li img{margin-right: 20px;}
 
 nav ul li{display: inline-block;}
 

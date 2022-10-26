@@ -42,16 +42,16 @@ catch (Exception $e){ die($e->getMessage());}
         </nav>
     </header>
     <hr>
-
+    <h2>Basic Song Search</h2>
     <main>
-        <h2>Basic Song Search</h2>
+      
         <form class="" method="GET" class="main form" action="browse-search-result.php">
             <div class="title">
                 <label>Title</label> 
-                <input type="text" name="title" title="title-search"> <br>
+                <input class="title" type="text" name="title" title="title-search"> <br>
             </div>
 
-        <div class= "artist-genre">
+            <div class="artist a1">
                 <label>Artist</label>
                 <select name="artistList" title="artist">
                     <option value='0'>Choose An Artist</option>
@@ -60,13 +60,15 @@ catch (Exception $e){ die($e->getMessage());}
                         stuff here
                     -->
                 </select>
+            </div>
+
+            <div class="genre a1">
                 <label>Genre</label>
                 <select name="genreList" title="genre">
                     <option value='0'>Choose A Genre</option>
                     <?=outputGenre($song)?>
                 </select> <br>
-
-</div>
+            </div>
     
             <div class="year">
                 <label>Year</label>
