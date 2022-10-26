@@ -1,21 +1,11 @@
 <?php   
-    /* TODO: remove after testing
-    if(! empty($_GET['id']) ){
-        echo $_GET['id'];
-    }
-    */
-    include_once 'includes/db-classes.inc.php';
-    require_once('includes/config.inc.php');
-    include_once 'includes/home-page-helper.php';
+    require_once 'includes/db-classes.inc.php';
+    require_once 'includes/config.inc.php';
 
     try{
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
         $songGateway = new SongsDB($conn);
-        // $artistGateway = new ArtistsDB($conn);
-        // $genreGateway = new GenresDB($conn);
-         //$song = $songGateway->showAllSongs();
 
-        // take this comment out: put the song_id from browe or whatever page into a variable
         if( !empty($_GET['id']) ){
             $song = $songGateway->getSong($_GET['id']);
         }
@@ -29,39 +19,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?=$song[0]['title']?> by <?=$song[0]['artist_name']?></title>
 </head>
 <body>
-    <div class="header">
-        <h1>Header</h1>
-    </div>
-    <div class="body">
-        <h1>Song Information</h1>
-        <?php 
-        echo $song['title']." by ".$song['artist_name']."<br>";
-        echo "Genre: ".$song['genre_name']."<br>";
-        echo "Year: ".$song['year']."<br>";
-        echo "Duration: ". $song['duration']."<br>";
-        /*
-        foreach($song as $key){ ?>
-        <p><?=$key['title']?></p>
-        <?php } */
-        ?>
-        <p> Analysis data</p>
+    <header>
+        <h1>COMP 3512 - PHP Assignment</h1>
+        <h3>Izabelle Guevarra, Kimberly Canon<h3>
         
 
-            <li><?= 'BPM: '. $song['bpm'];?></li>
-            <li><?= 'Energy: '. $song['energy'];?></li>
-            <li><?= 'Liveness: '. $song['liveness'];?></li>
-            <li><?= 'Danceability: '. $song['danceability'];?></li>
-            <li><?= 'Valence: '. $song['valence'];?></li>
-            <li><?= 'Acousticness: '. $song['acousticness'];?></li>
-            <li><?= 'Popularity: '. $song['popularity'];?></li>
-        </ul>  
-    </div>
-    <div class="footer">
-        <h1>Footer</h1>
-    </div>
+        <nav>
+            <ul>
+                <li><a href="home-page.php">HOME</a><img src="" alt= "home icon"/></li>
+                <li><a href="view-favorites.php">VIEW FAVORITES</a><img src="" alt= "favorites icon"/></li>
+                <li><a href="search-page.php">SEARCH</a><img src="" alt= "search icon"/></li>
+                <li><a href="browse-search-result.php">BROWSE/SEARCH</a><img src="" alt= "browse/search icon"/></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="body">
+        <h1>Song Information</h1>
+        <?php
+            foreach($song as $s){
+                echo $s['title']." by ". $s['artist_name']."<br>";
+                echo "Genre: ". $s['genre_name']."<br>";
+                echo "Year: ". $s['year']."<br>";
+                echo "Duration: ". $s['duration']."<br>";
+            } 
+
+            echo "<p>Analysis Data</p>";
+
+            echo "<ul>";
+            foreach($song as $s){ ?>
+                <li><?= 'BPM: ' . $s['bpm'];?></li>
+                <li><?= 'Energy: ' . $s['energy'];?></li>
+                <li><?= 'Liveness: ' . $s['liveness'];?></li>
+                <li><?= 'Danceability: ' . $s['danceability'];?></li>
+                <li><?= 'Valence: ' . $s['valence'];?></li>
+                <li><?= 'Acousticness: ' . $s['acousticness'];?></li>
+                <li><?= 'Popularity: ' . $s['popularity'];?></li>
+            <?php }
+            echo "</ul>";
+        ?> 
+    </main>
+
+    <footer>
+        <p>COMP 3512</p><p>&copy;Izabelle Guevarra & Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
+    </footer>
 </body>
 </html>

@@ -1,12 +1,18 @@
 <?php
+    function outputTop10Category($category){
+        echo "<ul>";
+        foreach($category as $c){
+            echo "<li><span>" . $c['name'] . "</span> with " . $c['num'] . " songs</li>";
+        }
+        echo "</ul>";
+    }
 
-function outputTopGenre($song,$popularity){
-    $sql = "SELECT title, popularity, artist_name from songs, artists WHERE songs.artist_id=artists.artist_id ORDER BY popularity LIMIT 10";
-    return $sql;
-}
-
-function outputSingleSong($row) {
-    echo $row['song_id']." By ".$row['artist_name']. " , ".$row['artist_type']. " , ". $row['genre_name']." (".$row['year'].") ".$row['duration'];
- }
+    function outputTop10Songs($song){
+        echo "<ul>";
+        foreach($song as $s){ ?>
+            <li><span><a href="single-song.php?id=<?=$s['song_id']?>"><?=$s['title']?></a></span> by <?=$s['artist_name']?></li>
+        <?php }
+        echo "</ul>";
+    }
 ?>
 

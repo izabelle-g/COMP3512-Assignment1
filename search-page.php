@@ -26,7 +26,8 @@ catch (Exception $e){ die($e->getMessage());}
 </head>
 <body>
     <header>
-        <h1>Header</h1>
+        <h1>COMP 3512 - PHP Assignment</h1>
+        <h3>Izabelle Guevarra, Kimberly Canon<h3>
 
         <nav>
             <ul>
@@ -96,7 +97,7 @@ catch (Exception $e){ die($e->getMessage());}
     </main>
 
     <footer>
-        <p>COMP 3512 - PHP Assignment</p><p>Izabelle Guevarra, Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
+        <p>COMP 3512</p><p>&copy;Izabelle Guevarra & Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
     </footer>
 </body>
 </html>

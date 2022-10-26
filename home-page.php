@@ -1,15 +1,13 @@
 <?php
-    include_once 'includes/db-classes.inc.php';
+    require_once 'includes/db-classes.inc.php';
     require_once 'includes/config.inc.php';
+    require_once 'includes/home-page-helper.inc.php';
 
     try{
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
         $songGateway = new SongsDB($conn);
         $artistGateway = new ArtistsDB($conn);
         $genreGateway = new GenresDB($conn);
-        $song = $songGateway->showAllSongs();
-        $artist = $artistGateway->getAll();
-        $genre = $genreGateway->getAll();
     }
     catch (Exception $e){ die($e->getMessage());}   
 ?>
@@ -25,7 +23,8 @@
 </head>
 <body>
     <header class="header">
-        <h1>Header</h1>
+        <h1>COMP 3512 - PHP Assignment</h1>
+        <h3>Izabelle Guevarra, Kimberly Canon<h3>
 
         <nav>
             <ul>
@@ -45,88 +44,64 @@
 
         <div class="column top-genre "> 
             <h3>Top Genres</h3>
-            <ul>
-                <?php
-                $genre = $genreGateway -> topGenres();
-                foreach($genre as $key){ ?>
-                <li><span><?= $key['genre_name'];?> - <?= $key['COUNT(songs.genre_id)'];?> </span> </li>
-                <?php
-                }
-                ?>
-           </ul>
+            <?php 
+                $genres = $genreGateway->getTop10Genres();
+                outputTop10Category($genres);
+            ?>
         </div>
         <div class="column top-artist"> 
             <h3>Top Artists</h3>
-            <ul>
-                <?php
-                $artist = $artistGateway -> getTop10Artists();
-                foreach($artist as $key){ ?>
-                <li><span><?= $key['artist_name']?> </li>
-                <?php
-                }
-                ?>
-            </ul>
+            <?php 
+                $artists = $artistGateway->getTop10Artists();
+                outputTop10Category($artists);
+            ?>
         </div>
         <div class="column popular"> 
             <h3>Most Popular Songs</h3>
-            <ul>
-                <?php
-                $song = $songGateway -> getTop10Popularity();
-                foreach($song as $key){ ?>
-                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?>  - <?= $key['popularity']?> </li>
-                <?php
-                }
-                ?>
-            </ul>
+            <?php 
+                $popular = $songGateway->getTop10Popularity();
+                outputTop10Songs($popular);
+            ?>
         </div>
         <div class="column one-hit"> 
             <h3>One Hit Wonders</h3>
-            <ul>
-                <?php
-                $song = $songGateway -> get10OneHits();
-                foreach($song as $key){ ?>
-                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> </li>
-                <?php
-                }
-                ?>
-           </ul>
+            <?php 
+                $oneHit = $songGateway->getTop10OneHits();
+                outputTop10Songs($oneHit);
+            ?>
         </div>
         <div class="column acoustic"> 
             <h3>Longest Acoustic Songs</h3>
-            <ul>
-                <?php
-                $song = $songGateway -> longestAcoustic();
-                foreach($song as $key){ ?>
-                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> Duration: <?= $key['duration']?></li>
-                <?php }
-                ?>
-           </ul>
+            <?php 
+                $acoustic = $songGateway->getTop10LongestAcoustic();
+                outputTop10Songs($acoustic);
+            ?>
         </div>
         <div class="column club"> 
-        <h3>At The Club</h3>
-            <ul>
-                <?php
-                $song = $songGateway -> AtTheClub();
-                foreach($song as $key){ ?>
-                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> Calc: <?= $key['danceability']?></li>
-                <?php }
-                ?>
-           </ul>
+            <h3>At The Club</h3>
+            <?php 
+                $club = $songGateway->getTop10AtTheClub();
+                outputTop10Songs($club);
+            ?>
         </div>
         <div class="column running"> 
-            <ul>
-                <li>Running Songs</li>
-            </ul>
+            <h3>Running Songs</h3>
+            <?php 
+                $run = $songGateway->getTop10RunningSongs();
+                outputTop10Songs($run);
+            ?>
         </div>
         <div class="column studying"> 
-            <ul>
-                <li>Studying</li>
-            </ul>
+            <h3>Studying</h3>
+            <?php 
+                $study = $songGateway->getTop10Studying();
+                outputTop10Songs($study);
+            ?>
         </div>
     </div>
 
     <footer>
-        <p>COMP 3512 - PHP Assignment</p><p>Izabelle Guevarra, Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a> 
+        <p>COMP 3512</p><p>&copy;Izabelle Guevarra & Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a> 
     </footer>
 </body>
 </html>

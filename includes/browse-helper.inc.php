@@ -1,12 +1,4 @@
 <?php
-
-
-    // function outputGenre($genre_name){
-    //     foreach($genre_name as $key){
-    //         echo '<option value='.$key.'>';
-    //         echo utf8_encode()
-    //     }
-    // }
     function outputSearchResults($songs, $name, $search){
         echo "<table>";
         echo "<tr>";
@@ -43,10 +35,4 @@
             echo "<option value='".$key['artist_id']."'>".$key['artist_name']."</option>";
         }
     }
-
-    // function findSongs($search){
-    //     try{
-    //         $conn = DatabaseHelper::creatConnection(array(DBCONNSTRING, DBUSER,DBPASS))
-    //     }
-    // }
 ?>
