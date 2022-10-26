@@ -21,20 +21,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css-files/home-page.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Home | Song Bank</title>
 </head>
 <body>
-    <div class="header">
-            <h1>Header</h1>
-     </div>
+    <header class="header">
+        <h1>Header</h1>
 
+        <nav>
+            <ul>
+                <li><a href="home-page.php">HOME</a><img src="" alt= "home icon"/></li>
+                <li><a href="view-favorites.php">VIEW FAVORITES</a><img src="" alt= "favorites icon"/></li>
+                <li><a href="search-page.php">SEARCH</a><img src="" alt= "search icon"/></li>
+                <li><a href="browse-search-result.php">BROWSE/SEARCH</a><img src="" alt= "browse/search icon"/></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="body">
-
+    <main class="body">
         <div class="desc">
-            <label>Home Page</label> <br>
-            COMP 3512 - PHP Assignment <br>
-            Izabelle Guevarra, Kimberly Canon
+            <h2>Top Music Categories</h2>
+            <p>COMP 3512 - PHP Assignment</p><p>Izabelle Guevarra, Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
         </div>
 
         <div class="column top-genre "> 
@@ -50,7 +56,7 @@
            </ul>
         </div>
         <div class="column top-artist"> 
-             <h3>Top Artists</h3>
+            <h3>Top Artists</h3>
             <ul>
                 <?php
                 $artist = $artistGateway -> getTop10Artists();
@@ -86,14 +92,13 @@
            </ul>
         </div>
         <div class="column acoustic"> 
-        <h3>Longest Acoustic Songs</h3>
+            <h3>Longest Acoustic Songs</h3>
             <ul>
                 <?php
                 $song = $songGateway -> longestAcoustic();
                 foreach($song as $key){ ?>
                 <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> Duration: <?= $key['duration']?></li>
-                <?php
-                }
+                <?php }
                 ?>
            </ul>
         </div>
@@ -104,8 +109,7 @@
                 $song = $songGateway -> AtTheClub();
                 foreach($song as $key){ ?>
                 <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> Calc: <?= $key['danceability']?></li>
-                <?php
-                }
+                <?php }
                 ?>
            </ul>
         </div>
@@ -121,10 +125,8 @@
         </div>
     </div>
 
-    <Footer>
-        <p>COMP 3512 - PHP Assignment</p> 
-        <p>Izabelle Guevarra, Kimberly Canon</p> 
-    </Footer>
+    <footer>
+        <p>COMP 3512 - PHP Assignment</p><p>Izabelle Guevarra, Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a> 
+    </footer>
 </body>
-
 </html>

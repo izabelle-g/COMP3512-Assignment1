@@ -109,7 +109,7 @@
         public function getSong($song_id){
             $sql = self::$baseSQL . " WHERE song_id=?";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($song_id));
-            return $statement->fetch();
+            return $statement->fetchAll();
         }
 
         public function getTop10Popularity(){
