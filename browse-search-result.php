@@ -61,15 +61,27 @@
 <!DOCTYPE html>
 <html lang=en>
 <head>
-    <title>Browse/Search Results</title>
-    <meta charset=utf-8>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse/Search</title>
     <!--<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">-->
 </head>
 <body>
     <header>
-        <h2>Header</h2>
+        <h1>COMP 3512 - PHP Assignment</h1>
+        <h3>Izabelle Guevarra, Kimberly Canon<h3>
+
+        <nav>
+            <ul>
+                <li><a href="home-page.php">HOME</a></li>
+                <li><a href="view-favorites.php">VIEW FAVORITES</a></li>
+                <li><a href="search-page.php">SEARCH</a></li>
+                <li><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -88,6 +100,7 @@
     </main>
 
     <footer>
-        <h2>Footer</h2>
+        <p>COMP 3512</p><p>&copy;Izabelle Guevarra & Kimberly Canon</p><a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
     </footer>
 </body>
+</html>

@@ -109,7 +109,7 @@
         public function getSong($song_id){
             $sql = self::$baseSQL . " WHERE song_id=?";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($song_id));
-            return $statement->fetch();
+            return $statement->fetchAll();
         }
 
         public function getTop10Popularity(){
@@ -118,26 +118,35 @@
             return $statement->fetchAll();
         }
 
-        public function get10OneHits(){
-
-            $sql = "SELECT song_id, title, artist_name, year, genre_name, popularity FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id INNER JOIN genres ON songs.genre_id = genres.genre_id GROUP BY artist_name HAVING COUNT(artist_name) < 2 ORDER BY artist_name ASC LIMIT 10";
+        public function getTop10OneHits(){
+            $sql = " SELECT song_id, artists.artist_name, title, popularity FROM songs INNER JOIN artists ON songs.artist_id=artists.artist_id GROUP BY artist_name HAVING COUNT(artist_name)=1 ORDER BY popularity DESC LIMIT 10";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
             return $statement->fetchAll();
         }
 
-        public function longestAcoustic(){
-            $sql = "SELECT title, duration,acousticness, artist_name FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id WHERE acousticness > 40 ORDER BY duration DESC LIMIT 10";
+        public function getTop10LongestAcoustic(){
+            $sql = "SELECT song_id, title, acousticness, duration, artist_name FROM songs INNER JOIN artists ON songs.artist_id=artists.artist_id WHERE acousticness>40 ORDER BY duration DESC LIMIT 10";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
             return $statement->fetchAll();
         }
 
-        public function AtTheClub(){
-            $sql = "SELECT title, danceability, danceability, artist_name FROM artists INNER JOIN songs ON songs.artist_id = artists.artist_id WHERE danceability > 80 ORDER BY danceability DESC LIMIT 10";
+        public function getTop10AtTheClub(){
+            $sql = "SELECT song_id, title, danceability, artist_name, (danceability*1.6) + (energy*1.4) AS calc FROM songs INNER JOIN artists ON songs.artist_id=artists.artist_id WHERE danceability>80 ORDER BY calc DESC LIMIT 10";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
             return $statement->fetchAll();
         }
 
+        public function getTop10RunningSongs(){
+            $sql = "SELECT song_id, title, bpm, artist_name, (energy*1.3) + (valence*1.6) AS calc FROM songs INNER JOIN artists ON songs.artist_id=artists.artist_id WHERE bpm BETWEEN 120 AND 125 ORDER BY calc DESC LIMIT 10";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
 
+        public function getTop10Studying(){
+            $sql = "SELECT song_id, title, bpm, artist_name, speechiness, (acousticness*0.8) + (100-speechiness) + (100-valence) AS calc FROM songs INNER JOIN artists ON songs.artist_id=artists.artist_id WHERE (bpm BETWEEN 100 AND 115) AND (speechiness BETWEEN 1 AND 20) ORDER BY calc DESC LIMIT 10";
+            $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+            return $statement->fetchAll();
+        }
     }
 
     class ArtistsDB{
@@ -160,8 +169,7 @@
         }
 
         public function getTop10Artists(){
-           // $sql = "SELECT COUNT(artist_id), artist_name FROM songs,artists WHERE artist.artist_id=songs.artist_id ";
-           $sql = "SELECT artist_name, COUNT(artists.artist_id) FROM songs INNER JOIN artists ON songs.artist_id=artists.artist_id ORDER BY artist_name LIMIT 10";
+            $sql = "SELECT artist_name AS name, COUNT(artists.artist_id) AS num FROM artists INNER JOIN songs ON artists.artist_id=songs.artist_id GROUP BY artists.artist_id ORDER BY num DESC LIMIT 10";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
             return $statement->fetchAll();
         }
@@ -188,8 +196,8 @@
             return $statement->fetchAll();
         }
 
-        public function topGenres(){
-            $sql = "SELECT COUNT(songs.genre_id), genres.genre_name FROM SONGS INNER JOIN genres ON songs.genre_id = genres.genre_id GROUP BY songs.genre_id ORDER BY COUNT(songs.genre_id) DESC LIMIT 10";
+        public function getTop10Genres(){
+            $sql = "SELECT COUNT(songs.genre_id) AS num, genre_name AS name FROM songs INNER JOIN genres ON songs.genre_id = genres.genre_id GROUP BY songs.genre_id ORDER BY num DESC LIMIT 10";
             $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
             return $statement->fetchAll();
         }

@@ -8,7 +8,7 @@
 
     // retrieve current favorites and resave the modified array to the session
     $favorites = $_SESSION["favorites"];
-    
+
     if( !empty($_GET["name"]) && !empty($_GET[$_GET["name"]]) )
         $str = "name=" . $_GET['name'] . "&" . $_GET['name'] . "=" . $_GET[$_GET['name']];
     else
@@ -18,7 +18,7 @@
     if( !array_search($_GET["id"], $favorites) ){
         $favorites[] = $_GET["id"];
         $_SESSION["favorites"] = $favorites;
-
+        
         // re-direct to view favorites
         header("Location: view-favorites.php?$str");
     } else{
