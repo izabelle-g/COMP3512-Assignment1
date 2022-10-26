@@ -19,8 +19,8 @@
                 <td><?=$f['year']?></td>
                 <td><?=$f['genre_name']?></td>
                 <td><?=$f['popularity']?></td>
-                <td><a href='remove-favorites.php?id=<?=$f['song_id']?>&<?=$search?>' class='button'>remove</a></td>
-                <td><a href='single-song.php?id=<?=$f['song_id']?>' class='button'>View "button"</a></td>
+                <td><a href='remove-favorites.php?id=<?=$f['song_id']?>&<?=$search?>' class='button rm'>remove</a></td>
+                <td><a href='single-song.php?id=<?=$f['song_id']?>' class='button view'>View "button"</a></td>
             </tr>
         <?php }   
     }

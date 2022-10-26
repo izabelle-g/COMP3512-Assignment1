@@ -27,6 +27,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="css-files/view-favorites.css" rel="stylesheet">
+
     <title>View Favorites</title>
     <!--<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -49,12 +51,14 @@
 
     <main>
         <h2>Favorites</h2>
-        <a href='remove-favorites.php?<?=$str?>' class= 'button'>Remove All</a>
+        <a href='remove-favorites.php?<?=$str?>' class= 'button favs'>Remove All</a>
 
         <!--Returns user to filtered search results-->
-        <a href='browse-search-result.php?<?=$str?>' class= 'button'>Return to Browse/Result Page</a>
+        <a href='browse-search-result.php?<?=$str?>' class= 'button favs'>Return to Browse/Result Page</a>
 
         <article>
+            <br>
+            <br>
             <section>
                 <?php
                     // echoes a message saying that the song is already in favorites
@@ -62,7 +66,7 @@
                         echo $_GET["text"]; 
                     }
 
-                    echo "<table>";
+                    echo "<table class='centre'>";
                     outputHeader();
 
                     // output each favorite song

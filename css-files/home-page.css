@@ -38,13 +38,14 @@ ul > li {
     list-style: none;
 }
 
-.header{
-    display: inline-block;
-    width: 900px;
+
+header .header{
+    width: 1000px;
     background-color: #eba2ac;
     padding: 10px;
     text-align: center;
     border-radius: 20%;
+    align-content: center;
     
 
 }
