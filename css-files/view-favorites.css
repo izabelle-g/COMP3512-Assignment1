@@ -1,15 +1,22 @@
 body{
     display:block;
     font-family: 'Courier New', Courier, monospace;
-    background-color: var(--background-color);
+    background-color: var(--background);
+    color: var(--darkbrown);
     
 }
 
+a:link    { color: var(--darkbrown); text-decoration: none; }
+a:visited { color: var(--darkbrown); text-decoration: none; }
+a:hover   { color: var(--highlight-color); text-decoration: none; }
+a:active  { color: var(--highlight-color); text-decoration: none; }
+
 th{
     padding: 20px;
-    color: #4a3603;
+    color: var(--darkbrown);
     font-weight: bolder;
     font-size: large;
+
 }
 header, main ,footer, table { 
     text-align: center;
@@ -29,6 +36,10 @@ footer a{
 
 table{
     padding-bottom: 100px;
+    padding: 50px;
+    background-color: var(--teal);
+    margin: -5px;
+    border-radius: 5px;
 }
 
 .rm, .view{
@@ -49,11 +60,10 @@ ul li{
 .favs{
     display: inline-block;
     padding: 20px;
-    color: var(--darkbrown-color);
     font-size: large;
     font-weight: bolder;
     border-radius: 10px;
-    background-color: var(--pink-color);
+    background-color: var(--pink);
 
     
 }

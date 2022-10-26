@@ -28,6 +28,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" href="css-files/view-favorites.css" rel="stylesheet">
+    <link type="text/css" href="css-files/main.css" rel="stylesheet">
+
 
     <title>View Favorites</title>
     <!--<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
