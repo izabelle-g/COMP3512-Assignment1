@@ -32,3 +32,21 @@ nav ul li{
     padding:30px
 }
 
+img{height: 30px; width: 30px; margin-right: -20px;}
+nav ul li a{padding:30px;}
+
+table{
+    margin: auto auto;
+}
+
+td{
+    text-align: center;
+}
+
+td.song-title{
+    text-align: left;
+}
+
+button{font-family: 'Courier New', Courier, monospace;}
+td a {text-align: start ;}
+.button{margin-right: 30px; margin-left: 30px;}

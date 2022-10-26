@@ -44,10 +44,10 @@
 
         <nav>
             <ul>
-                <li><a href="home-page.php">HOME</a></li>
-                <li><a href="view-favorites.php">VIEW FAVORITES</a></li>
-                <li><a href="search-page.php">SEARCH</a></li>
-                <li><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
+                <li><img src="icons/home.png" alt= "home icon"/><a href="home-page.php">HOME</a></li>
+                <li><img src="icons/fav.png" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
+                <li><img src="icons/search.png" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
+                <li><img src="icons/browse.png" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
         <hr>

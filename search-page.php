@@ -31,13 +31,14 @@ catch (Exception $e){ die($e->getMessage());}
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
             <hr>
-        <nav>
+            <nav>
             <ul>
-                <li><a href="home-page.php">HOME</a></li>
-                <li><a href="view-favorites.php">VIEW FAVORITES</a></li>
-                <li><a href="search-page.php">SEARCH</a></li>
-                <li><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
+                <li><img src="icons/home.png" alt= "home icon"/><a href="home-page.php">HOME</a></li>
+                <li><img src="icons/fav.png" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
+                <li><img src="icons/search.png" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
+                <li><img src="icons/browse.png" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
+        </nav>
         </nav>
     </header>
     <hr>
@@ -50,7 +51,7 @@ catch (Exception $e){ die($e->getMessage());}
                 <input type="text" name="title" title="title-search"> <br>
             </div>
 
-            <div class="artist">
+        <div class= "artist-genre">
                 <label>Artist</label>
                 <select name="artistList" title="artist">
                     <option value='0'>Choose An Artist</option>
@@ -59,15 +60,13 @@ catch (Exception $e){ die($e->getMessage());}
                         stuff here
                     -->
                 </select>
-            </div>
-
-            <div class="genre">
                 <label>Genre</label>
                 <select name="genreList" title="genre">
                     <option value='0'>Choose A Genre</option>
                     <?=outputGenre($song)?>
                 </select> <br>
-            </div>
+
+</div>
     
             <div class="year">
                 <label>Year</label>

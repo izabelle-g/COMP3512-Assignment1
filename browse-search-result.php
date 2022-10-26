@@ -9,18 +9,20 @@
         $artistGateway = new ArtistsDB($conn);
         $genreGateway = new GenresDB($conn);
 
+        $name="";
+
         if( !empty($_GET['title']) ){
             $songs = $songsGateway->getAllWithTitle($_GET['title']);
             $message = "Showing all songs with '" . $_GET['title'] . "' in Title";
             $name = "title";
         }
-        else if( !empty($_GET['artistList'] && $_GET['artistList'] > 0) ){
+        else if( !empty($_GET['artistList']) && $_GET['artistList'] > 0){
             $artist_data = $artistGateway->getArtist($_GET['artistList']);
             $songs = $songsGateway->getAllForArtist($artist_data[0]['artist_name']);
             $message = "Showing all songs by " . $artist_data[0]['artist_name'];
             $name = "artistList";
         }
-        else if( !empty($_GET['genreList'] && $_GET['genreList'] > 0) ){
+        else if( !empty($_GET['genreList']) && $_GET['genreList'] > 0 ){
             $genre_data = $genreGateway->getGenre($_GET['genreList']);
             $songs = $songsGateway->getAllForGenre($genre_data[0]['genre_name']);
             $message = "Showing all " . $genre_data[0]['genre_name'] . " songs in Genre";
@@ -50,7 +52,6 @@
             $songs = $songsGateway->showAllSongs();
             $message = "Showing all songs";
         }
-
         // get query strings
         $search = $_GET[$name];
     } catch(Exception $e){
@@ -79,10 +80,10 @@
         <hr>
         <nav>
             <ul>
-                <li><a href="home-page.php">HOME</a></li>
-                <li><a href="view-favorites.php">VIEW FAVORITES</a></li>
-                <li><a href="search-page.php">SEARCH</a></li>
-                <li><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
+                <li><img src="icons/home.png" alt= "home icon"/><a href="home-page.php">HOME</a></li>
+                <li><img src="icons/fav.png" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
+                <li><img src="icons/search.png" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
+                <li><img src="icons/browse.png" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
         <hr>

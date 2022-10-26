@@ -68,7 +68,8 @@ ul li {
     font-weight: bolder;
     border-radius: 10px;
     background-color: var(--pink);
-
-    
 }
+
+img{height: 30px; width: 30px; margin-right: -20px;}
+nav ul li a{padding:30px;}
 
