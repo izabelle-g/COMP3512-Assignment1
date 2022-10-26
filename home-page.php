@@ -91,7 +91,7 @@
                 <?php
                 $song = $songGateway -> longestAcoustic();
                 foreach($song as $key){ ?>
-                <li><span><?= $key['title'];?> </span> - <?= $key['artist_name']?> Duration: <?= $key['duration']?></li>
+                <li><span><b><?= $key['title'];?> </b></span> - <?= $key['artist_name']?> Duration: <?= $key['duration']?></li>
                 <?php
                 }
                 ?>
