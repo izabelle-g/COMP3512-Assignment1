@@ -1,6 +1,7 @@
 <?php   
     require_once 'includes/db-classes.inc.php';
     require_once 'includes/config.inc.php';
+    require_once 'includes/single-song-helper.inc.php';
 
     try{
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
@@ -48,9 +49,12 @@
                 foreach($song as $s){
                     echo "<div class='title'><b>".$s['title']."</b> by ". $s['artist_name']."<br></div>";
                     echo "<br>";
+                    echo "Artist type: ". $s['type_name']."<br>";
                     echo "Genre: ". $s['genre_name']."<br>";
                     echo "Year: ". $s['year']."<br>";
-                    echo "Duration: ". $s['duration']."<br>";
+                    echo "Duration: "; 
+                    toTime($s['duration']);
+                    echo " min<br>";
                 } 
                 echo "</div>";
 
