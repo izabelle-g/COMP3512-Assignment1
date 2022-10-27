@@ -39,11 +39,10 @@
         <hr>
     </header>
     
-
+    <h2>Top Music Categories</h2>
 
     <main class="body">
         <div class="desc">
-            <h2>Top Music Categories</h2>
             <p>COMP 3512 - PHP Assignment</p><p>Izabelle Guevarra, Kimberly Canon</p>
             <a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
         </div>

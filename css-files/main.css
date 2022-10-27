@@ -63,4 +63,10 @@ nav ul li{
     align-items: center;
 }
 
+h2{
+    display:block; 
+    align-content: center; 
+    text-align: center;
+}
+
 img{height: 30px; width: 30px; margin-right: -20px;}

@@ -86,8 +86,9 @@
         <hr>
     </header>
 
+    <h2>Browse / Search Results</h2>
+
     <main>
-        <h2>Browse / Search Results</h2>
         <h3><?php echo $message; ?></h3>
 
         <a href='browse-search-result.php' class= 'button'>Show All</a>

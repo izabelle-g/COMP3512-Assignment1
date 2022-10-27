@@ -1,3 +1,9 @@
+h2{
+    display:block; 
+    align-content: center; 
+    text-align: center;
+}
+
 th{
     padding: 20px;
     color: var(--darkbrown);

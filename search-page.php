@@ -39,12 +39,12 @@ catch (Exception $e){ die($e->getMessage());}
         </nav>
         <hr>
     </header>
-    
+
     <h2>Basic Song Search</h2>
 
     <main>
       
-        <form class="" method="GET" class="main form" action="browse-search-result.php">
+        <form method="GET" class="main form" action="browse-search-result.php">
             <div class="title">
                 <label>Title</label> 
                 <input class="title" type="text" name="title" title="title-search"> <br>
@@ -55,9 +55,6 @@ catch (Exception $e){ die($e->getMessage());}
                 <select name="artistList" title="artist">
                     <option value='0'>Choose An Artist</option>
                     <?=outputArtistList($artist);?>
-                    <!--
-                        stuff here
-                    -->
                 </select>
             </div>
 

@@ -28,15 +28,8 @@
     <header class="header">
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
-<<<<<<< Updated upstream
-            <hr>
-            <br>
-        
-            <nav>
-=======
         <hr>
         <nav>
->>>>>>> Stashed changes
             <ul>
                 <li><img src="icons/home.PNG" alt= "home icon"/><a href="home-page.php">HOME</a></li>
                 <li><img src="icons/fav.PNG" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
@@ -47,8 +40,9 @@
         <hr>
     </header>
 
+    <h2>Song Information</h2>
+
     <main class="body">
-        <h1>Song Information</h1>
         <div class="list">
             <?php
                 foreach($song as $s){
@@ -73,7 +67,7 @@
                 <?php }
                 echo "</div></ul>";
             ?>
-        
+        </div>
     </main>
 
     <footer>

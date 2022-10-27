@@ -5,6 +5,7 @@ main h3{
 h2{
     background-color: var(--pink);
 }
+
 li{
     list-style: none;
 }

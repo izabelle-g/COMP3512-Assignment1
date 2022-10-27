@@ -48,8 +48,9 @@
         <hr>
     </header>
 
+    <h2>View Favorites</h2>
+
     <main>
-        <h2>Favorites</h2>
         <a href='remove-favorites.php?<?=$str?>' class= 'button favs'>Remove All</a>
 
         <!--Returns user to filtered search results-->
