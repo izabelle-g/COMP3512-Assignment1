@@ -47,7 +47,7 @@ catch (Exception $e){ die($e->getMessage());}
         <form method="GET" class="main form" action="browse-search-result.php">
             <div class="title">
                 <label>Title</label> 
-                <input class="title" type="text" name="title" title="title-search"> <br>
+                <input type="text" name="title" title="title-search"> <br>
             </div>
 
             <div class="artist a1">

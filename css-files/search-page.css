@@ -26,7 +26,10 @@ label{
 .year, .popularity{padding-top: 30px;}
 main{margin-left: -30px;}
 
-.title input{padding-left: 150px; padding-right: 150px;}
+.title input{
+    width: 450px;
+}
+
 .artist-genre label{padding: 20px; margin-bottom:30px;}
 
 footer a{
