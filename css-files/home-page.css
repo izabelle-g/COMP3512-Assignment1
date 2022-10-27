@@ -1,16 +1,6 @@
-body{
-    background-color: var(--background);
-    font-family: 'Courier New', Courier, monospace;
-    color: var(--darkbrown);
-}
 .body{
     display: block;
 }
-
-a:link    { color: var(--darkbrown);}
-a:visited { color: var(--darkbrown);}
-a:hover   { color: var(--highlight-color);}
-a:active  { color: var(--highlight-color);}
 
 div{
     display: inline-block;
@@ -36,32 +26,14 @@ h3{
     background-color: var(--teal);
 }
 
-header, main ,footer { 
-    padding-top: 30px;
-    text-align: center;
-    align-content: center;    
-}
-
 .column ul{
     padding-top: 2px;
     text-align: start;
-}
-nav{
-    padding: 30px;
-}
-
-nav ul li a{padding:30px;}
-nav ul li{
-    padding-left: 30px;
-    padding-right:30px;
-    align-items: center;
 }
 
 ul > li {
     display: inline-block;
     list-style: none;
- 
-
 }
 
 li span{
@@ -72,15 +44,6 @@ footer a, .desc a{
     background-color: #e0ded1;
     padding: 10px;
     border-radius: 10px;
-
-}
-header .header{
-    width: 1000px;
-    background-color: #eba2ac;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10%;
-    align-content: center;
 }
 
 .desc{
@@ -88,4 +51,3 @@ header .header{
     text-align: center;
     margin-bottom: 30px;
 }
-img{height: 30px; width: 30px; margin-right: -20px;}

@@ -10,11 +10,8 @@ try{
     $song = $songGateway->getAll();
     $artist = $artistGateway->getAll();
 }
-  //  $sql = "SELECT title, artist_name, year, genre_name, popularity FROM songs, artist, genre ORDER BY title WHERE title LIKE '%$search%';
 catch (Exception $e){ die($e->getMessage());}   
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,28 +21,30 @@ catch (Exception $e){ die($e->getMessage());}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" href="css-files/search-page.css" rel="stylesheet">
     <link type="text/css" href="css-files/main.css" rel="stylesheet">
+
     <title>Search Song</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
-            <hr>
-            <nav>
+        <hr>
+        <nav>
             <ul>
-                <li><img src="icons/home.png" alt= "home icon"/><a href="home-page.php">HOME</a></li>
-                <li><img src="icons/fav.png" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
-                <li><img src="icons/search.png" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
-                <li><img src="icons/browse.png" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
+                <li><img src="icons/home.PNG" alt= "home icon"/><a href="home-page.php">HOME</a></li>
+                <li><img src="icons/fav.PNG" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
+                <li><img src="icons/search.PNG" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
+                <li><img src="icons/browse.PNG" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
-        </nav>
+        <hr>
     </header>
-    <hr>
+
     <h2>Basic Song Search</h2>
+
     <main>
       
-        <form class="" method="GET" class="main form" action="browse-search-result.php">
+        <form method="GET" class="main form" action="browse-search-result.php">
             <div class="title">
                 <label>Title</label> 
                 <input class="title" type="text" name="title" title="title-search"> <br>
@@ -56,9 +55,6 @@ catch (Exception $e){ die($e->getMessage());}
                 <select name="artistList" title="artist">
                     <option value='0'>Choose An Artist</option>
                     <?=outputArtistList($artist);?>
-                    <!--
-                        stuff here
-                    -->
                 </select>
             </div>
 

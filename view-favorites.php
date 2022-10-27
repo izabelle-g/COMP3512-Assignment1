@@ -30,31 +30,27 @@
     <link type="text/css" href="css-files/view-favorites.css" rel="stylesheet">
     <link type="text/css" href="css-files/main.css" rel="stylesheet">
 
-
     <title>View Favorites</title>
-    <!--<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">-->
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
         <hr>
-
         <nav>
             <ul>
-                <li><img src="icons/home.png" alt= "home icon"/><a href="home-page.php">HOME</a></li>
-                <li><img src="icons/fav.png" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
-                <li><img src="icons/search.png" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
-                <li><img src="icons/browse.png" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
+                <li><img src="icons/home.PNG" alt= "home icon"/><a href="home-page.php">HOME</a></li>
+                <li><img src="icons/fav.PNG" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
+                <li><img src="icons/search.PNG" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
+                <li><img src="icons/browse.PNG" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
         <hr>
     </header>
 
+    <h2>View Favorites</h2>
+
     <main>
-        <h2>Favorites</h2>
         <a href='remove-favorites.php?<?=$str?>' class= 'button favs'>Remove All</a>
 
         <!--Returns user to filtered search results-->

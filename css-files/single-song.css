@@ -1,44 +1,30 @@
-body{
-    display:block;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: var(--background);
-    color: var(--darkbrown);
-    
-}
-
-a:link    {color: var(--darkbrown);}
-a:visited {color: var(--darkbrown);}
-a:hover   {color: var(--highlight-color);}
-a:active  {color: var(--highlight-color);}
-
-
-header, main ,footer, table { 
+table { 
     text-align: center;
-
     margin: 50px;
 }
 
 .body h1{background-color: var(--pink);}
+h2{background-color: var(--pink);}
 
 li{list-style: none;}
-li img{margin-right: 20px;}
-
-nav ul li{display: inline-block;}
 
 .body ul{
     margin-top: 30px;
 }
 span{font-weight: bold;}
 
+p{
+    padding-top: 20px;
+}
+
 p b{
     font-size: larger;
     background-color: var(--teal);
     padding: 10px;
-
     border-radius: 10px;
 }
 
-.title b{font-size: x-large;}
+.title b{font-size: larger;}
 .data{margin-top: 40px; display: block;}
 
 footer a, .desc a{
@@ -47,4 +33,6 @@ footer a, .desc a{
     border-radius: 10px;
 }
 
-img{height: 30px; width: 30px; margin-right: -20px;}
+.data ul{
+    padding: 0px;
+}

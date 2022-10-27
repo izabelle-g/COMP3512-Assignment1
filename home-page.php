@@ -27,25 +27,22 @@
     <header class="header">
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
-
         <hr>
-
         <nav>
             <ul>
-                <li><img src="icons/home.png" alt= "home icon"/><a href="home-page.php">HOME</a></li>
-                <li><img src="icons/fav.png" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
-                <li><img src="icons/search.png" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
-                <li><img src="icons/browse.png" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
+                <li><img src="icons/home.PNG" alt= "home icon"/><a href="home-page.php">HOME</a></li>
+                <li><img src="icons/fav.PNG" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
+                <li><img src="icons/search.PNG" alt= "search icon"/><a href="search-page.php">SEARCH</a></li>
+                <li><img src="icons/browse.PNG" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
         <hr>
     </header>
     
-
+    <h2>Top Music Categories</h2>
 
     <main class="body">
         <div class="desc">
-            <h2>Top Music Categories</h2>
             <p>COMP 3512 - PHP Assignment</p><p>Izabelle Guevarra, Kimberly Canon</p>
             <a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
         </div>

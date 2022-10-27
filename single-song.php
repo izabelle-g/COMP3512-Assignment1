@@ -21,16 +21,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" href="css-files/single-song.css" rel="stylesheet">
     <link type="text/css" href="css-files/main.css" rel="stylesheet">
+
     <title><?=$song[0]['title']?> by <?=$song[0]['artist_name']?></title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>COMP 3512 - PHP Assignment</h1>
         <h3>Izabelle Guevarra, Kimberly Canon<h3>
-            <hr>
-            <br>
-        
-            <nav>
+        <hr>
+        <nav>
             <ul>
                 <li><img src="icons/home.PNG" alt= "home icon"/><a href="home-page.php">HOME</a></li>
                 <li><img src="icons/fav.PNG" alt= "favorites icon"/><a href="view-favorites.php">VIEW FAVORITES</a></li>
@@ -38,11 +37,12 @@
                 <li><img src="icons/browse.PNG" alt= "browse/search icon"/><a href="browse-search-result.php">BROWSE/SEARCH</a></li>
             </ul>
         </nav>
+        <hr>
     </header>
-    <hr>
+
+    <h2>Song Information</h2>
 
     <main class="body">
-        <h1>Song Information</h1>
         <div class="list">
             <?php
                 foreach($song as $s){
@@ -67,7 +67,7 @@
                 <?php }
                 echo "</div></ul>";
             ?>
-        
+        </div>
     </main>
 
     <footer>
