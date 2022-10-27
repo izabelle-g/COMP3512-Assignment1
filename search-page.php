@@ -39,12 +39,9 @@ catch (Exception $e){ die($e->getMessage());}
         </nav>
         <hr>
     </header>
-<<<<<<< Updated upstream
-    <hr>
+    
     <h2>Basic Song Search</h2>
-=======
 
->>>>>>> Stashed changes
     <main>
       
         <form class="" method="GET" class="main form" action="browse-search-result.php">

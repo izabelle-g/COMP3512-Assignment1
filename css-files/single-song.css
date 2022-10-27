@@ -1,20 +1,5 @@
-body{
-    display:block;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: var(--background);
-    color: var(--darkbrown);
-    
-}
-
-a:link    {color: var(--darkbrown);}
-a:visited {color: var(--darkbrown);}
-a:hover   {color: var(--highlight-color);}
-a:active  {color: var(--highlight-color);}
-
-
-header, main ,footer, table { 
+table { 
     text-align: center;
-
     margin: 50px;
 }
 
@@ -22,8 +7,6 @@ header, main ,footer, table {
 
 li{list-style: none;}
 li img{margin-right: 20px;}
-
-nav ul li{display: inline-block;}
 
 .body ul{
     margin-top: 30px;
