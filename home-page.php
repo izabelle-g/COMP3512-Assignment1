@@ -47,8 +47,7 @@
             <a href="https://github.com/izabelle-g/COMP3512-Assignment1.git">Access to Github Repository</a>
         </div>
         
-        
-
+    
         <div class="column top-genre "> 
             <h3>Top Genres</h3>
             <?php 

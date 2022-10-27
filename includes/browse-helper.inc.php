@@ -1,4 +1,9 @@
 <?php
+
+/* 
+* Outputs a table list of the songs, the aritst name, year, genre and popularity.
+*/
+
     function outputSearchResults($songs, $name, $search){
         echo "<table>";
         echo "<tr>";
@@ -23,13 +28,19 @@
         <?php }
         echo "</table>";
     } 
-
+/*
+* Function outputs the genre of the songs selected
+*/
     function outputGenre($songs){
         foreach($songs as $key){
             echo "<option value='".$key['genre_id']."'>".$key['genre_name']."</option>";
         }
 
     }
+
+/*
+* Function outputs the aritst of the songs selected
+*/
     function outputArtistList($artist){
         foreach($artist as $key){
             echo "<option value='".$key['artist_id']."'>".$key['artist_name']."</option>";

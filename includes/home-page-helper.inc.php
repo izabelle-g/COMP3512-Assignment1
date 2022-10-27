@@ -1,4 +1,7 @@
 <?php
+/*
+* outputs the top 10 categories ordered from highest to lowest
+*/
     function outputTop10Category($category){
         echo "<ul>";
         foreach($category as $c){
@@ -7,6 +10,9 @@
         echo "</ul>";
     }
 
+/*
+* outputs the top 10 songs
+*/
     function outputTop10Songs($song){
         echo "<ul>";
         foreach($song as $s){ ?>

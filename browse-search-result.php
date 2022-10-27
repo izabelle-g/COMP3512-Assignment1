@@ -96,6 +96,9 @@
         <article>
             <section>
                 <?php
+                /*
+                * outputs the songs that contains the requirements the user is seraching for
+                */
                     outputSearchResults($songs, $name, $search);
                 ?>
             </section>
